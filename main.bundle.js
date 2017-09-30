@@ -733,7 +733,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--appBackground [a]=\"'purple'\" [b]=\"'pink'\"-->\n<div class=\"home\">\n  <ul class=\"home__list-of-articles\">\n    <app-article *ngFor=\"let item of articles\"\n                 [item]=\"item\"\n                 [styles]=\"styles\"\n                 (change)=\"changeValue($event)\"\n                 (changedTitle)=\"titleHandler($event)\"\n                 (removeArticle)=\"removeArticleHandler($event)\">\n\n    </app-article>\n  </ul>\n</div>\n<ul>\n\n</ul>\n\n"
+module.exports = "<!--appBackground [a]=\"'purple'\" [b]=\"'pink'\"-->\n<div class=\"home\">\n  <ul class=\"home__list-of-articles\">\n    <app-article *ngFor=\"let item of articles\"\n                 [item]=\"item\"\n                 [styles]=\"styles\"\n                 (changedTitle)=\"titleHandler($event)\"\n                 (removeArticle)=\"removeArticleHandler($event)\">\n\n    </app-article>\n  </ul>\n</div>\n<ul>\n\n</ul>\n\n"
 
 /***/ }),
 
