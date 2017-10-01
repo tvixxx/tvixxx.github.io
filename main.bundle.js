@@ -17,6 +17,158 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_gendir lazy recursive";
 
 /***/ }),
 
+/***/ "../../../../../src/app/about-page/about-page.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".about-page {\n  display: block;\n  box-sizing: border-box;\n  padding: 0 40px;\n  font-size: 18px;\n  line-height: 24px;\n  font-weight: 300;\n  color: #0a0522;\n}\n\n.about-page h1 {\n  font-size: 24px;\n  line-height: 36px;\n}\n\n.about-page h3 {\n  font-size: 20px;\n  opacity: .9;\n}\n\n.about-page ul li {\n  opacity: .8;\n}\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/about-page/about-page.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"about-page\">\n  <h1>{{aboutInfo.mainTitle}}</h1>\n  <h3>{{aboutInfo.subTitle}}</h3>\n  <ul>\n    <li *ngFor=\"let technology of aboutInfo.technologies\">\n      {{ technology }}\n    </li>\n  </ul>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/about-page/about-page.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutPageComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__about_service__ = __webpack_require__("../../../../../src/app/about.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AboutPageComponent = (function () {
+    function AboutPageComponent(aboutService) {
+        this.aboutService = aboutService;
+    }
+    AboutPageComponent.prototype.ngOnInit = function () {
+        this.aboutInfo = this.aboutService.getInfo();
+    };
+    return AboutPageComponent;
+}());
+AboutPageComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-about-page',
+        template: __webpack_require__("../../../../../src/app/about-page/about-page.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/about-page/about-page.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__about_service__["a" /* AboutService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__about_service__["a" /* AboutService */]) === "function" && _a || Object])
+], AboutPageComponent);
+
+var _a;
+//# sourceMappingURL=about-page.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/about.guard.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutGuard; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var AboutGuard = (function () {
+    function AboutGuard() {
+    }
+    AboutGuard.prototype.canActivate = function (next, state) {
+        if (localStorage.getItem('admin')) {
+            return true;
+        }
+        alert('the access denied. You are not admin!');
+        return (localStorage.getItem('admin')) ? true : false;
+    };
+    return AboutGuard;
+}());
+AboutGuard = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])()
+], AboutGuard);
+
+//# sourceMappingURL=about.guard.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/about.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AboutService = (function () {
+    function AboutService() {
+        this.aboutInfo = {
+            mainTitle: 'This SPA was made using Angular 4',
+            subTitle: 'Technologies:',
+            technologies: [
+                'Routing',
+                'Reactive forms',
+                'Two way data-binding',
+                'One way data-binding',
+                'Component modular architecture',
+                'Guard routing',
+                'Services',
+                'Dependency Injection',
+                'Directives and custom directives',
+                'Pipes and custom pipes',
+                'ES6 + TS',
+                'BEM',
+                'HTML',
+                'CSS'
+            ]
+        };
+    }
+    AboutService.prototype.getInfo = function () {
+        return this.aboutInfo;
+    };
+    return AboutService;
+}());
+AboutService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [])
+], AboutService);
+
+//# sourceMappingURL=about.service.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/about/about.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25,7 +177,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".about-article-section {\n  box-sizing: border-box;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  padding: 50px 20px;\n}\n\n.about-article {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: start;\n      -ms-flex-align: start;\n          align-items: flex-start;\n  max-width: 600px;\n  width: 100%;\n}\n\n.about-article__img {\n  max-width: 400px;\n  width: 100%;\n  height: auto;\n  max-height: 400px;\n  -ms-flex-item-align: center;\n      -ms-grid-row-align: center;\n      align-self: center;\n}\n\n.about-article__title {\n  box-sizing: border-box;\n  font-size: 24px;\n  line-height: 36px;\n  font-weight: 500;\n  margin-top: 30px;\n  margin-bottom: 10px;\n}\n\n.about-article__description {\n  width: 100%;\n  margin-left: 0;\n  margin-right: auto;\n  font-size: 18px;\n  line-height: 32px;\n  font-weight: 300;\n}\n\n.about-article__button {\n  margin-top: 40px;\n}\n", ""]);
 
 // exports
 
@@ -38,7 +190,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/about/about.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <img [src]=\"currentArticle.img_src\" [alt]=\"currentArticle.name\">\n  <h1>{{currentArticle.name}}</h1>\n  <p>\n    {{currentArticle.description}}\n  </p>\n\n</div>\n\n<button (click)=\"goHomePage()\">Home pages</button>\n"
+module.exports = "<section class=\"about-article-section\">\n  <div class=\"about-article\">\n    <img class=\"about-article__img\" [src]=\"currentArticle.img_src\" [alt]=\"currentArticle.name\">\n    <h1 class=\"about-article__title\">{{currentArticle.name}}</h1>\n    <p class=\"about-article__description\">\n      {{currentArticle.description}}\n    </p>\n\n  </div>\n\n  <button class=\"about-article__button common-btn\" (click)=\"goHomePage()\">Home page</button>\n\n</section>\n"
 
 /***/ }),
 
@@ -76,11 +228,8 @@ var AboutComponent = (function () {
             if (params.id) {
                 _this.currentId = params.id;
             }
-            console.log(_this.currentId);
-            console.log(params.id);
         });
         this.currentArticle = this.articleService.getArticleById(this.currentId)[0];
-        console.log(this.currentArticle);
     };
     AboutComponent.prototype.goHomePage = function () {
         this.router.navigateByUrl('/');
@@ -122,7 +271,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--<h1 [class]=\"firstClass\">My first {{ title }}</h1>-->\n<!--<h3>hello user {{userName}}</h3>-->\n\n<!--<button (click)=\"editData()\">Edit userName data</button>-->\n\n<!--<app-test [init]=\"'qwe'\" [data]=\"data\"></app-test>-->\n\n<!--<input type=\"text\" [(ngModel)]=\"search\">-->\n<!--<p>{{search}}</p>-->\n\n<app-main-navigation></app-main-navigation>\n\n<router-outlet></router-outlet>\n"
+module.exports = "<app-main-navigation></app-main-navigation>\n\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -321,12 +470,22 @@ a.writers.push(TestWrite);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__nasa_service__ = __webpack_require__("../../../../../src/app/nasa.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__create_article_create_article_component__ = __webpack_require__("../../../../../src/app/create-article/create-article.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__main_navigation_main_navigation_component__ = __webpack_require__("../../../../../src/app/main-navigation/main-navigation.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__about_guard__ = __webpack_require__("../../../../../src/app/about.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__shared_phone_pipe__ = __webpack_require__("../../../../../src/app/shared/phone.pipe.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__about_page_about_page_component__ = __webpack_require__("../../../../../src/app/about-page/about-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__about_service__ = __webpack_require__("../../../../../src/app/about.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__shared_search_article_pipe__ = __webpack_require__("../../../../../src/app/shared/search-article.pipe.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
 
 
 
@@ -362,16 +521,20 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_10__expand_description_directive__["a" /* ExpandDescriptionDirective */],
             __WEBPACK_IMPORTED_MODULE_12__about_about_component__["a" /* AboutComponent */],
             __WEBPACK_IMPORTED_MODULE_16__create_article_create_article_component__["a" /* CreateArticleComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__main_navigation_main_navigation_component__["a" /* MainNavigationComponent */]
+            __WEBPACK_IMPORTED_MODULE_17__main_navigation_main_navigation_component__["a" /* MainNavigationComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__shared_phone_pipe__["a" /* PhonePipe */],
+            __WEBPACK_IMPORTED_MODULE_20__about_page_about_page_component__["a" /* AboutPageComponent */],
+            __WEBPACK_IMPORTED_MODULE_22__shared_search_article_pipe__["a" /* SearchArticlePipe */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_forms__["c" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_forms__["d" /* ReactiveFormsModule */],
             __WEBPACK_IMPORTED_MODULE_11__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_14__route_routes__["a" /* routes */]),
             __WEBPACK_IMPORTED_MODULE_13__angular_http__["d" /* JsonpModule */],
             __WEBPACK_IMPORTED_MODULE_13__angular_http__["b" /* HttpModule */]
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_9__shared_article_service__["a" /* ArticleService */], __WEBPACK_IMPORTED_MODULE_15__nasa_service__["a" /* NasaService */]],
+        providers: [__WEBPACK_IMPORTED_MODULE_9__shared_article_service__["a" /* ArticleService */], __WEBPACK_IMPORTED_MODULE_21__about_service__["a" /* AboutService */], __WEBPACK_IMPORTED_MODULE_15__nasa_service__["a" /* NasaService */], __WEBPACK_IMPORTED_MODULE_18__about_guard__["a" /* AboutGuard */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -388,7 +551,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".article {\n  box-sizing: border-box;\n  padding: 20px;\n  box-shadow: 0 3px 6px 0 rgba(123, 123, 123, 0.2);\n}\n\n:host + :host {\n  margin-left: 20px;\n}\n\n.article__preview {\n  position: relative;\n  width: 100%;\n  max-width: 300px;\n  height: auto;\n  max-height: 200px;\n  vertical-align: top;\n  overflow: hidden;\n}\n\n.article__preview-img {\n  max-width: 100%;\n  height: auto;\n}\n\n.article__open-article {\n  position: absolute;\n  content: '';\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  opacity: 0;\n  visibility: hidden;\n  -webkit-transform: scale(0.75);\n          transform: scale(0.75);\n  transition: all .22s ease-in-out;\n  background-color: rgba(255, 255, 255, 0.7);\n}\n\n.article__open-article-btn {\n  box-sizing: border-box;\n  width: auto;\n  color: #333;\n  padding: 3px;\n  font-size: 24px;\n  line-height: 36px;\n  background-color: transparent;\n  outline: 0;\n  border: 0;\n  opacity: 1;\n  text-decoration: underline;\n  cursor: pointer;\n}\n\n.article__open-article-btn:hover {\n  opacity: 0.7;\n  text-decoration: none;\n}\n\n.article__open-article-btn:active {\n  opacity: 0.5;\n}\n\n.article__preview:hover .article__open-article {\n  visibility: visible;\n  opacity: 1;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n}\n\n.article__body {\n  background-color: #fff;\n}\n\n.article__title {\n  max-width: 300px;\n  font-size: 20px;\n  line-height: 32px;\n  color: #333;\n}\n\n.article__description {\n  max-width: 300px;\n  font-size: 16px;\n  line-height: 24px;\n  color: #0a0522;\n  transition: all .6s cubic-bezier(.42,0,.58,1);\n  max-height: 500px;\n}\n\n.article__input-wrapper {\n  box-sizing: border-box;\n  padding-top: 20px;\n  display: block;\n  max-width: 200px;\n  width: 100%;\n  margin-right: auto;\n  margin-left: 0;\n}\n\n.article__input-name {\n  box-sizing: border-box;\n  display: block;\n  border: 1px solid rgba(123, 123, 123, 0.3);\n  outline: 0;\n  padding: 4px 10px;\n  font-size: 14px;\n  line-height: 18px;\n  color: #333;\n  width: 100%;\n  border-radius: 3px;\n  transition: all .2s ease;\n}\n\n.article__input-name:focus {\n  border: 1px solid #59cd90;\n}\n\n.article__input-wrapper + .article__title {\n  margin-top: 20px;\n}\n\n.overflowed {\n  max-height: 50px;\n  overflow: hidden;\n}\n\n.article__btns {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n}\n\n.article__edit-title {\n\n}\n\n.article__edit-title-btn {\n  background-color: #59cd90;\n}\n\n.article__edit-title-btn:hover {\n  background-color: #00ba51;\n}\n\n.article__remove-article {\n\n}\n\n.article__remove-article-btn {\n  background-color: #B21200;\n}\n\n.article__remove-article-btn:hover {\n  background-color: #FF1900;\n}\n\n.btn-article {\n  width: auto;\n  padding: 8px 15px;\n  font-size: 14px;\n  font-family: 'Helvetica', 'Arial', sans-serif;\n  font-weight: 300;\n  line-height: 18px;\n  border: 0;\n  outline: 0;\n  color: #fff;\n  border-radius: 10px;\n  opacity: 0.8;\n  transition: all .2s ease-in-out;\n  cursor: pointer;\n}\n\n.btn-article:hover {\n  opacity: 1;\n  color: #f7f7f7;\n}\n", ""]);
+exports.push([module.i, ".article {\n  box-sizing: border-box;\n  padding: 20px;\n  box-shadow: 0 3px 6px 0 rgba(123, 123, 123, 0.2);\n}\n\n:host + :host {\n  margin-left: 20px;\n}\n\n.article__preview {\n  position: relative;\n  width: 100%;\n  max-width: 300px;\n  height: auto;\n  max-height: 200px;\n  vertical-align: top;\n  overflow: hidden;\n}\n\n.article__preview-img {\n  max-width: 100%;\n  height: auto;\n}\n\n.article__open-article {\n  position: absolute;\n  content: '';\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  opacity: 0;\n  visibility: hidden;\n  -webkit-transform: scale(0.75);\n          transform: scale(0.75);\n  transition: all .22s ease-in-out;\n  background-color: rgba(255, 255, 255, 0.7);\n  cursor: pointer;\n}\n\n.article__open-article-text {\n  box-sizing: border-box;\n  width: auto;\n  color: #333;\n  padding: 3px;\n  font-size: 24px;\n  line-height: 36px;\n  background-color: transparent;\n  outline: 0;\n  border: 0;\n  opacity: 1;\n  cursor: pointer;\n}\n\n.article__open-article:hover .article__open-article-text {\n  opacity: 0.7;\n}\n\n.article__open-article:active .article__open-article-text {\n  opacity: 0.5;\n}\n\n.article__preview:hover .article__open-article {\n  visibility: visible;\n  opacity: 1;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n}\n\n.article__body {\n  background-color: #fff;\n}\n\n.article__title {\n  max-width: 300px;\n  font-size: 20px;\n  line-height: 32px;\n  color: #333;\n}\n\n.article__description {\n  max-width: 300px;\n  font-size: 16px;\n  line-height: 24px;\n  color: #0a0522;\n  transition: all .6s cubic-bezier(.42,0,.58,1);\n  max-height: 500px;\n}\n\n.article__input-wrapper {\n  box-sizing: border-box;\n  padding-top: 20px;\n  display: block;\n  width: 100%;\n  margin-right: auto;\n  margin-left: 0;\n}\n\n.article__input-name {\n  box-sizing: border-box;\n  display: block;\n  width: 100%;\n  padding: 10px 15px;\n  border-radius: 3px;\n  border: 0;\n  outline: 0;\n  color: rgba(9, 8, 34, 0.85);\n  border-top: 3px solid rgba(33, 33, 33, 0.2);\n  box-shadow: 0 2px 3px 0 rgba(122, 122, 122, 0.15);\n  transition: all .2s ease-in-out;\n}\n\n.article__input-name:focus {\n  color: rgba(13, 12, 34, 0.95);\n  box-shadow: 0 2px 3px 0 rgba(99, 99, 99, 0.2);\n  border-top: 3px solid rgba(77, 77, 77, 0.55);\n}\n\n.article__input-wrapper + .article__title {\n  margin-top: 20px;\n}\n\n.overflowed {\n  max-height: 50px;\n  overflow: hidden;\n}\n\n.article__btns {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n}\n\n.article__edit-title {\n\n}\n\n.article__edit-title-btn {\n  background-color: #59cd90;\n}\n\n.article__edit-title-btn:hover {\n  background-color: #00ba51;\n}\n\n.article__remove-article {\n\n}\n\n.article__remove-article-btn {\n  background-color: #B21200;\n}\n\n.article__remove-article-btn:hover {\n  background-color: #FF1900;\n}\n\n.btn-article {\n  width: auto;\n  padding: 8px 15px;\n  font-size: 14px;\n  font-family: 'Helvetica', 'Arial', sans-serif;\n  font-weight: 300;\n  line-height: 18px;\n  border: 0;\n  outline: 0;\n  color: #fff;\n  border-radius: 4px;\n  opacity: 0.8;\n  transition: all .2s ease-in-out;\n  cursor: pointer;\n}\n\n.btn-article:hover {\n  opacity: 1;\n  color: #f7f7f7;\n}\n\n.article__edit-title + .article__remove-article {\n  margin-left: 20px;\n}\n", ""]);
 
 // exports
 
@@ -401,7 +564,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/article/article.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<article class=\"article\" id=\"{{item.id}}\">\n  <div class=\"article__preview\">\n    <img [src]=\"item.img_src\" alt=\"{{item.name}}\" class=\"article__preview-img\">\n    <div class=\"article__open-article\">\n      <button (click)=\"goToAbout(item.id)\" class=\"article__open-article-btn\">Open</button>\n    </div>\n  </div>\n  <div class=\"article__body\">\n    <div *ngIf=\"editing\" class=\"article__input-wrapper\">\n      <input type=\"text\"\n         class=\"article__input-name\"\n         [value]=\"item.name\"\n         (input)=\"inputHandler($event.target.value)\"\n         placeholder=\"enter the new value\"\n        >\n    </div>\n    <h2 class=\"article__title\">{{item.name}}</h2>\n    <p class=\"article__description\" appExpandDescription [styles]=\"styles\">\n      {{item.description}}\n    </p>\n  </div>\n  <div class=\"article__btns\">\n    <div class=\"article__edit-title\">\n      <button class=\"article__edit-title-btn btn-article\" (click)=\"editHandler()\">{{ editing ? 'Done' : 'Edit'}}</button>\n    </div>\n    <div class=\"article__remove-article\">\n      <button class=\"article__remove-article-btn btn-article\" (click)=\"removeHandler()\">Remove current article</button>\n    </div>\n  </div>\n</article>\n\n"
+module.exports = "<article class=\"article\" id=\"{{item.id}}\">\n  <div class=\"article__preview\">\n    <img [src]=\"item.img_src\" alt=\"{{item.name}}\" class=\"article__preview-img\">\n    <div class=\"article__open-article\" (click)=\"goToAbout(item.id)\">\n      <span class=\"article__open-article-text\">Open</span>\n    </div>\n  </div>\n  <div class=\"article__body\">\n    <div *ngIf=\"editing\" class=\"article__input-wrapper\">\n      <input type=\"text\"\n         class=\"article__input-name\"\n         [value]=\"item.name\"\n         (input)=\"inputHandler($event.target.value)\"\n         placeholder=\"enter the new value\"\n        >\n    </div>\n    <h2 class=\"article__title\">{{item.name}}</h2>\n    <p class=\"article__description\" appExpandDescription [styles]=\"styles\">\n      {{item.description}}\n    </p>\n  </div>\n  <div class=\"article__btns\">\n    <div class=\"article__edit-title\">\n      <button class=\"article__edit-title-btn btn-article\" (click)=\"editHandler()\">{{ editing ? 'Done' : 'Edit'}}</button>\n    </div>\n    <div class=\"article__remove-article\">\n      <button class=\"article__remove-article-btn btn-article\" (click)=\"removeHandler()\">Remove current article</button>\n    </div>\n  </div>\n</article>\n\n"
 
 /***/ }),
 
@@ -430,7 +593,6 @@ var ArticleComponent = (function () {
         this.changedTitle = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
         this.removeArticle = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
         this.editing = false;
-        this.valueText = 'child value';
     }
     ArticleComponent.prototype.ngOnInit = function () {
     };
@@ -565,7 +727,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".create-article {\n  box-sizing: border-box;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  max-width: 100%;\n  width: 100%;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  padding: 30px 20px 60px;\n}\n\n.create-article__form {\n  box-sizing: border-box;\n  max-width: 700px;\n  width: 100%;\n  background-color: #fff;\n  padding: 40px;\n  box-shadow: 0 5px 20px 0 rgba(33, 33, 33, 0.2);\n  border-radius: 4px;\n  margin-bottom: 20px;\n}\n\n.create-article__additional-text {\n  display: block;\n  font-size: 18px;\n  line-height: 24px;\n  color: #090822;\n  margin-top: 0;\n  margin-bottom: 20px;\n}\n\n.create-article__fieldset {\n  display: block;\n  padding: 0;\n  margin: 0;\n  border: 0;\n  outline: 0;\n}\n\n.create-article__fieldset + .create-article__fieldset {\n  margin-top: 40px;\n}\n\n.create-article__label {\n  display: block;\n  font-size: 14px;\n  line-height: 18px;\n  color: #090822;\n  opacity: 0.8;\n}\n\n.create-article__label + .create-article__input {\n  margin-top: 15px;\n}\n\n.create-article__input {\n  box-sizing: border-box;\n  display: block;\n  width: 80%;\n  padding: 10px 15px;\n  border-radius: 3px;\n  border: 0;\n  outline: 0;\n  color: rgba(9, 8, 34, 0.85);\n  border-top: 3px solid rgba(33, 33, 33, 0.2);\n  box-shadow: 0 2px 3px 0 rgba(122, 122, 122, 0.15);\n  transition: all .2s ease-in-out;\n}\n\n.create-article__input:focus {\n  color: rgba(13, 12, 34, 0.95);\n  box-shadow: 0 2px 3px 0 rgba(99, 99, 99, 0.2);\n  border-top: 3px solid rgba(77, 77, 77, 0.55);\n}\n\n.create-article__textarea {\n  box-sizing: border-box;\n  display: block;\n  width: 80%;\n  padding: 20px;\n  outline: 0;\n  border: 0;\n  resize: none;\n  min-height: 300px;\n  border-top: 3px solid rgba(33, 33, 33, 0.2);\n  color: rgba(9, 8, 34, 0.85);\n  box-shadow: 0 2px 3px 0 rgba(122, 122, 122, 0.15);\n  border-radius: 3px;\n}\n\n.create-article__label + .create-article__textarea {\n  margin-top: 15px;\n}\n\n.create-article__textarea:focus {\n  color: rgba(13, 12, 34, 0.95);\n  box-shadow: 0 2px 3px 0 rgba(99, 99, 99, 0.2);\n  border-top: 3px solid rgba(77, 77, 77, 0.55);\n}\n\n.create-article__button {\n  box-sizing: border-box;\n  padding: 5px 20px;\n  font-size: 20px;\n  line-height: 32px;\n  width: auto;\n  text-align: center;\n  outline: 0;\n  border: 0;\n  border-top: 3px solid rgba(33, 33, 33, 0.2);\n  box-shadow: 0 2px 3px 0 rgba(122, 122, 122, 0.15);\n  opacity: 1;\n  color: rgba(9, 8, 34, 0.85);\n  transition: all .2s ease-in-out;\n  background-color: #fff;\n  border-radius: 3px;\n  cursor: pointer;\n}\n\n.create-article__button:hover,\n.create-article__button:active {\n  color: rgba(13, 12, 34, 0.95);\n  border-top: 3px solid rgba(77, 77, 77, 0.55);\n  box-shadow: 0 2px 3px 0 rgba(99, 99, 99, 0.2);\n}\n\n.create-article__button:active {\n  opacity: 0.8;\n}\n\n.create-article__button:focus {\n  border-top: 3px solid rgba(77, 77, 77, 0.65);\n}\n\n\n.common-btn {\n  box-sizing: border-box;\n  width: auto;\n  color: #333;\n  padding: 3px;\n  font-size: 16px;\n  line-height: 24px;\n  background-color: transparent;\n  outline: 0;\n  border: 0;\n  opacity: 1;\n  text-decoration: underline;\n  cursor: pointer;\n}\n\n.common-btn:hover {\n  opacity: 0.7;\n  text-decoration: none;\n}\n\n.common-btn:active {\n  opacity: 0.5;\n}\n", ""]);
+exports.push([module.i, ".create-article {\n  box-sizing: border-box;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  max-width: 100%;\n  width: 100%;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  padding: 30px 20px 60px;\n}\n\n.create-article__form {\n  box-sizing: border-box;\n  max-width: 700px;\n  width: 100%;\n  background-color: #fff;\n  padding: 40px;\n  box-shadow: 0 5px 20px 0 rgba(33, 33, 33, 0.2);\n  border-radius: 4px;\n  margin-bottom: 20px;\n  transition: all .2s ease-in-out;\n}\n\n.create-article__form.valid-form {\n  box-shadow: 0 5px 20px 0 rgba(89, 205, 144, 0.2);\n}\n\n.create-article__form.invalid-form {\n  box-shadow: 0 5px 20px 0 rgba(178, 18, 0, 0.2);\n}\n\n.create-article__additional-text {\n  display: block;\n  font-size: 18px;\n  line-height: 24px;\n  color: #090822;\n  margin-top: 0;\n  margin-bottom: 20px;\n}\n\n.create-article__fieldset {\n  display: block;\n  padding: 0;\n  margin: 0;\n  border: 0;\n  outline: 0;\n}\n\n.create-article__fieldset + .create-article__fieldset {\n  margin-top: 30px;\n}\n\n.create-article__label {\n  display: block;\n  font-size: 14px;\n  line-height: 18px;\n  color: #090822;\n  opacity: 0.8;\n}\n\n.create-article__label + .create-article__input {\n  margin-top: 15px;\n}\n\n.create-article__input {\n  box-sizing: border-box;\n  display: block;\n  width: 100%;\n  padding: 10px 15px;\n  border-radius: 3px;\n  border: 0;\n  outline: 0;\n  color: rgba(9, 8, 34, 0.85);\n  border-top: 3px solid rgba(33, 33, 33, 0.2);\n  box-shadow: 0 2px 3px 0 rgba(122, 122, 122, 0.15);\n  transition: all .2s ease-in-out;\n}\n\n.create-article__input:focus {\n  color: rgba(13, 12, 34, 0.95);\n  box-shadow: 0 2px 3px 0 rgba(99, 99, 99, 0.2);\n  border-top: 3px solid rgba(77, 77, 77, 0.55);\n}\n\n.create-article__input.valid-input:focus {\n  border-top: 3px solid rgba(89, 205, 144, 0.55);\n}\n\n.create-article__input.invalid-input:focus {\n  border-top: 3px solid rgba(178, 18, 0, 0.55);\n}\n\n.create-article__textarea {\n  box-sizing: border-box;\n  display: block;\n  width: 100%;\n  padding: 20px;\n  outline: 0;\n  border: 0;\n  resize: none;\n  min-height: 300px;\n  border-top: 3px solid rgba(33, 33, 33, 0.2);\n  color: rgba(9, 8, 34, 0.85);\n  box-shadow: 0 2px 3px 0 rgba(122, 122, 122, 0.15);\n  border-radius: 3px;\n}\n\n.create-article__label + .create-article__textarea {\n  margin-top: 15px;\n}\n\n.create-article__textarea:focus {\n  color: rgba(13, 12, 34, 0.95);\n  box-shadow: 0 2px 3px 0 rgba(99, 99, 99, 0.2);\n  border-top: 3px solid rgba(77, 77, 77, 0.55);\n}\n\n.create-article__textarea.valid-input:focus {\n  border-top: 3px solid rgba(89, 205, 144, 0.55);\n}\n\n.create-article__textarea.invalid-input:focus {\n  border-top: 3px solid rgba(178, 18, 0, 0.55);\n}\n\n.create-article__button {\n  box-sizing: border-box;\n  padding: 5px 20px;\n  font-size: 20px;\n  line-height: 32px;\n  width: auto;\n  text-align: center;\n  outline: 0;\n  border: 0;\n  border-top: 3px solid rgba(33, 33, 33, 0.2);\n  box-shadow: 0 2px 3px 0 rgba(122, 122, 122, 0.15);\n  opacity: 1;\n  color: rgba(9, 8, 34, 0.85);\n  transition: all .2s ease-in-out;\n  background-color: #fff;\n  border-radius: 3px;\n  cursor: pointer;\n}\n\n.create-article__button:disabled {\n  cursor: default;\n}\n\n.create-article__button:not(.disabled):hover,\n.create-article__button:not(.disabled):active {\n  color: rgba(13, 12, 34, 0.95);\n  border-top: 3px solid rgba(77, 77, 77, 0.55);\n  box-shadow: 0 2px 3px 0 rgba(99, 99, 99, 0.2);\n}\n\n.create-article__button:not(.disabled):active {\n  opacity: 0.8;\n}\n\n.create-article__button:not(.disabled):focus {\n  border-top: 3px solid rgba(77, 77, 77, 0.65);\n}\n\n.create-article__button.disabled {\n  opacity: 0.6;\n}\n\n.create-article__error-text {\n  font-size: 14px;\n  color: #B21200;\n  line-height: 24px;\n  font-weight: 300;\n  margin-top: 10px;\n  margin-bottom: 0;\n}\n\n.valid-input {\n  border-top: 3px solid #59cd90;\n  transition: all .2s ease-in-out;\n}\n\n.create-article__button.valid-input:hover,\n.create-article__button.valid-input:active {\n  border-top: 3px solid rgba(89, 205, 144, 0.55);\n}\n\n.create-article__button.valid-input:focus {\n  border-top: 3px solid rgba(89, 205,144, 0.65);\n}\n\n.invalid-input {\n  border-top: 3px solid #B21200;\n  transition: all .2s ease-in-out;\n}\n\n.create-article__button.invalid-input:not(.disabled):hover,\n.create-article__button.invalid-input:not(.disabled):active {\n  border-top: 3px solid rgba(178, 18, 0, 0.55);\n}\n\n.create-article__button.invalid-input:not(.disabled):focus {\n  border-top: 3px solid rgba(178, 18, 0, 0.65);\n}\n", ""]);
 
 // exports
 
@@ -578,7 +740,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/create-article/create-article.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"create-article\">\n  <form class=\"create-article__form\" action=\"\">\n    <p class=\"create-article__additional-text\">\n      Please enter the data for the new article!\n    </p>\n\n    <fieldset class=\"create-article__fieldset\">\n      <label for=\"article-name\" class=\"create-article__label\">Name:</label>\n      <input tabindex=\"1\"\n             type=\"text\"\n             #name\n             name=\"articleName\"\n             id=\"article-name\"\n             class=\"create-article__input\"\n             placeholder=\"Name\">\n    </fieldset>\n\n    <fieldset class=\"create-article__fieldset\">\n      <label for=\"img-url\" class=\"create-article__label\">Image url address:</label>\n      <input tabindex=\"2\"\n             id=\"img-url\"\n             name=\"articleUrlImg\"\n             #url\n             type=\"text\" class=\"create-article__input\" placeholder=\"Image url\">\n    </fieldset>\n\n    <fieldset class=\"create-article__fieldset\">\n      <label for=\"article-description\" class=\"create-article__label\">Description:</label>\n      <textarea tabindex=\"3\"\n                name=\"articleDescription\"\n                #description\n                class=\"create-article__textarea\"\n                placeholder=\"Description\"\n                id=\"article-description\">\n      </textarea>\n    </fieldset>\n\n    <fieldset class=\"create-article__fieldset\">\n      <button tabindex=\"4\"\n              (click)=\"createArticleHandler(name.value, url.value, description.value)\"\n              class=\"create-article__button\"\n      >\n        Create\n      </button>\n    </fieldset>\n  </form>\n\n  <button class=\"common-btn\" (click)=\"goHomePage()\">Go to Home page</button>\n</div>\n"
+module.exports = "<div class=\"create-article\">\n  <form class=\"create-article__form\"\n        [formGroup]=\"createForm\"\n        (ngSubmit)=\"submit(createForm.value)\"\n        [ngClass]=\"{\n          'valid-form': createForm.valid && createForm.touched,\n          'invalid-form': createForm.invalid && createForm.touched\n        }\">\n    <p class=\"create-article__additional-text\">\n      Please enter the data for the new article!\n    </p>\n\n    <fieldset class=\"create-article__fieldset\">\n      <label for=\"article-name\" class=\"create-article__label\">Name:</label>\n      <input tabindex=\"1\"\n             formControlName=\"name\"\n             [(ngModel)]=\"newArticle.name\"\n             [ngClass]=\"{\n              'valid-input': name.valid && name.touched,\n              'invalid-input': name.invalid && name.touched\n             }\"\n             type=\"text\"\n             class=\"create-article__input\"\n             placeholder=\"Name\"\n             id=\"article-name\">\n      <p class=\"create-article__error-text\" *ngIf=\"name.invalid && name.touched\">The field invalid.</p>\n    </fieldset>\n\n    <fieldset class=\"create-article__fieldset\">\n      <label for=\"img-url\" class=\"create-article__label\">Image url address:</label>\n      <input tabindex=\"2\"\n             formControlName=\"src\"\n             [(ngModel)]=\"newArticle.img_src\"\n             [ngClass]=\"{\n              'valid-input': src.valid && src.touched,\n              'invalid-input': src.invalid && src.touched\n             }\"\n             type=\"text\"\n             class=\"create-article__input\"\n             placeholder=\"Image url\"\n             id=\"img-url\">\n      <p class=\"create-article__error-text\" *ngIf=\"src.invalid && src.touched\">The field invalid.</p>\n    </fieldset>\n\n    <fieldset class=\"create-article__fieldset\">\n      <label for=\"article-description\" class=\"create-article__label\">Description:</label>\n      <textarea tabindex=\"3\"\n                formControlName=\"description\"\n                [(ngModel)]=\"newArticle.description\"\n                [ngClass]=\"{\n                  'valid-input': description.valid && description.touched,\n                  'invalid-input': description.invalid && description.touched\n                }\"\n                class=\"create-article__textarea\"\n                placeholder=\"Description\"\n                id=\"article-description\">\n      </textarea>\n      <p class=\"create-article__error-text\" *ngIf=\"description.invalid && description.touched\">The field invalid.</p>\n    </fieldset>\n\n    <fieldset class=\"create-article__fieldset\">\n      <button [disabled]=\"createForm.invalid\"\n              tabindex=\"4\"\n              class=\"create-article__button\"\n              [ngClass]=\"{\n                'valid-input': createForm.valid,\n                'invalid-input': createForm.invalid,\n                'disabled': createForm.invalid\n              }\"\n      >\n        Create\n      </button>\n    </fieldset>\n  </form>\n\n  <button class=\"common-btn\" (click)=\"goHomePage()\">Go to Home page</button>\n</div>\n"
 
 /***/ }),
 
@@ -590,6 +752,7 @@ module.exports = "<div class=\"create-article\">\n  <form class=\"create-article
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_article_service__ = __webpack_require__("../../../../../src/app/shared/article.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -602,33 +765,72 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var CreateArticleComponent = (function () {
     function CreateArticleComponent(articleService, router) {
         this.articleService = articleService;
         this.router = router;
-        // this.newArticle = {
-        //   id: this.newArticle.id = this.setUniqueId(10, 100000),
-        //   name: name,
-        //   img_src: img_src,
-        //   description: description
-        // }
+        this.newArticle = {
+            id: 0,
+            name: '',
+            description: '',
+            img_src: ''
+        };
+        this.createForm = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormGroup */]({
+            name: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormControl */]('', [
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["e" /* Validators */].minLength(5),
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["e" /* Validators */].maxLength(40),
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["e" /* Validators */].required
+            ]),
+            src: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormControl */]('', [
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["e" /* Validators */].minLength(7),
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["e" /* Validators */].required
+            ]),
+            description: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormControl */]('', [
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["e" /* Validators */].minLength(10),
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["e" /* Validators */].required
+            ])
+        });
     }
     CreateArticleComponent.prototype.ngOnInit = function () {
     };
+    Object.defineProperty(CreateArticleComponent.prototype, "name", {
+        get: function () {
+            return this.createForm.get('name');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(CreateArticleComponent.prototype, "src", {
+        get: function () {
+            return this.createForm.get('src');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(CreateArticleComponent.prototype, "description", {
+        get: function () {
+            return this.createForm.get('description');
+        },
+        enumerable: true,
+        configurable: true
+    });
     CreateArticleComponent.prototype.setUniqueId = function (min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     };
-    CreateArticleComponent.prototype.createArticleHandler = function (name, url, description) {
-        this.newArticle.id = 1000;
-        this.newArticle.name = name;
-        this.newArticle.img_src = url;
-        this.newArticle.description = description;
-        console.log(this.newArticle);
+    CreateArticleComponent.prototype.createArticleHandler = function () {
+        debugger;
+        this.newArticle.id = this.articleService.getLastArticleId().id;
+        this.newArticle.id += 1;
+        console.log(this.newArticle.id);
         this.articleService.addNewArticle(this.newArticle);
-        console.log(this.articleService.getArticles());
     };
     CreateArticleComponent.prototype.goHomePage = function () {
         this.router.navigateByUrl('/');
+    };
+    CreateArticleComponent.prototype.submit = function (event) {
+        this.createArticleHandler();
+        this.goHomePage();
     };
     return CreateArticleComponent;
 }());
@@ -720,7 +922,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".home {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  transition: all .3s ease-in-out;\n}\n\n.home__list-of-articles {\n  box-sizing: border-box;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  max-width: 1280px;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  width: 100%;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin: 0;\n  padding: 40px;\n}\n\napp-article {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-bottom: 40px;\n}\n\napp-article + app-article {\n  margin-left: 20px;\n}\n\n@media screen and (min-width: 1140px) {\n  .home__list-of-articles app-article:nth-child(3n+1) {\n    margin-left: 0;\n  }\n}\n\n@media screen and (max-width: 1140px) {\n  app-article {\n    margin-left: 0;\n  }\n\n  app-article + app-article {\n    margin-left: 40px;\n  }\n\n  .home__list-of-articles app-article:nth-child(2n+1) {\n    margin-left: 0;\n  }\n}\n\n.blue {\n  background-color: blue;\n  -webkit-transform: scale(0.7);\n          transform: scale(0.7);\n}\n", ""]);
+exports.push([module.i, ".home {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  transition: all .3s ease-in-out;\n}\n\n.home__list-of-articles {\n  box-sizing: border-box;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  max-width: 1280px;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  width: 100%;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin: 0;\n  padding: 40px;\n}\n\napp-article {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-bottom: 40px;\n}\n\napp-article + app-article {\n  margin-left: 20px;\n}\n\n@media screen and (min-width: 1140px) {\n  .home__list-of-articles app-article:nth-child(3n+1) {\n    margin-left: 0;\n  }\n}\n\n@media screen and (max-width: 1140px) {\n  app-article {\n    margin-left: 0;\n  }\n\n  app-article + app-article {\n    margin-left: 40px;\n  }\n\n  .home__list-of-articles app-article:nth-child(2n+1) {\n    margin-left: 0;\n  }\n}\n\n.blue {\n  background-color: blue;\n  -webkit-transform: scale(0.7);\n          transform: scale(0.7);\n}\n", ""]);
 
 // exports
 
@@ -733,7 +935,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--appBackground [a]=\"'purple'\" [b]=\"'pink'\"-->\n<div class=\"home\">\n  <ul class=\"home__list-of-articles\">\n    <app-article *ngFor=\"let item of articles\"\n                 [item]=\"item\"\n                 [styles]=\"styles\"\n                 (changedTitle)=\"titleHandler($event)\"\n                 (removeArticle)=\"removeArticleHandler($event)\">\n\n    </app-article>\n  </ul>\n</div>\n<ul>\n\n</ul>\n\n"
+module.exports = "<!--appBackground [a]=\"'purple'\" [b]=\"'pink'\"-->\n<div class=\"home\">\n\n  <app-search (changeQuery)=\"changeSearchQuery($event)\"\n              (changeQueryByBadge)=\"changeSearchQueryByBadge($event)\"\n              [search]=\"query\">\n\n  </app-search>\n\n  <ul class=\"home__list-of-articles\">\n    <app-article *ngFor=\"let item of articles | articleName:query\"\n                 [item]=\"item\"\n                 [styles]=\"styles\"\n                 (changedTitle)=\"titleHandler($event)\"\n                 (removeArticle)=\"removeArticleHandler($event)\">\n    </app-article>\n  </ul>\n</div>\n<ul>\n\n</ul>\n\n"
 
 /***/ }),
 
@@ -762,7 +964,7 @@ var HomeComponent = (function () {
         this.articleService = articleService;
         this.nasaService = nasaService;
         this.articles = [];
-        // articles;
+        this.query = '';
         // data: any;
         // friends: any;
         // bulldogs: string[] = [];
@@ -786,6 +988,12 @@ var HomeComponent = (function () {
     HomeComponent.prototype.removeArticleHandler = function (item) {
         this.articleService.removeArticle(item);
         this.articles = this.articleService.getArticles();
+    };
+    HomeComponent.prototype.changeSearchQuery = function (search) {
+        this.query = search;
+    };
+    HomeComponent.prototype.changeSearchQueryByBadge = function (search) {
+        this.query = search;
     };
     return HomeComponent;
 }());
@@ -811,7 +1019,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".header {\n  box-sizing: border-box;\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 60px;\n  width: 100%;\n  display: block;\n  font-family: 'Helvetica', 'Arial', sans-serif;\n  /*border-bottom: 1px solid rgba(10, 5, 34, 0.4);*/\n  box-shadow: 0 3px 6px 0 rgba(0 ,0, 0, .15);\n  background-color: #fff;\n  z-index: 100;\n}\n\n.header__nav {\n  display: block;\n  height: 100%;\n  z-index: 100;\n  position: relative;\n}\n\n.header__nav-list {\n  box-sizing: border-box;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 100%;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  padding: 0 40px;\n  margin: 0;\n}\n\n.header__nav-item {\n  box-sizing: border-box;\n  list-style: none;\n  padding-right: 10px;\n  border-right: 1px solid rgba(10, 5, 34, 0.4);\n}\n\n.header__nav-item:last-child {\n  padding-right: 0;\n  border-right: 1px solid transparent;\n}\n\n.header__nav-link {\n  font-size: 16px;\n  line-height: 24px;\n  color: #0a0522;\n  text-decoration: none;\n  text-shadow: 0 2px 3px rgba(123, 123, 123, 0.2);\n  opacity: 1;\n  transition: all .2s ease;\n}\n\n.header__nav-link:hover {\n  opacity: 0.8;\n  color: #090822;\n}\n\n.header__nav-link:active {\n  opacity: 0.6;\n}\n\n.header__nav-link.active {\n  opacity: 0.5;\n}\n\n.header__nav-link.active:hover {\n  opacity: 0.5;\n}\n\n.header__nav-item + .header__nav-item {\n  margin-left: 10px;\n}\n", ""]);
+exports.push([module.i, ".header {\n  box-sizing: border-box;\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 60px;\n  width: 100%;\n  display: block;\n  font-family: 'Helvetica', 'Arial', sans-serif;\n  /*border-bottom: 1px solid rgba(10, 5, 34, 0.4);*/\n  box-shadow: 0 3px 6px 0 rgba(0 ,0, 0, .15);\n  background-color: #fff;\n  z-index: 100;\n}\n\n.header__nav {\n  display: block;\n  height: 100%;\n  z-index: 100;\n  position: relative;\n}\n\n.header__nav-list {\n  box-sizing: border-box;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 100%;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  padding: 0 40px;\n  margin: 0;\n}\n\n.header__nav-item {\n  box-sizing: border-box;\n  list-style: none;\n  padding-right: 10px;\n  border-right: 1px solid rgba(10, 5, 34, 0.4);\n  outline: 0;\n}\n\n.header__nav-item:last-child {\n  padding-right: 0;\n  border-right: 1px solid transparent;\n}\n\n.header__nav-link {\n  font-size: 16px;\n  line-height: 24px;\n  color: #0a0522;\n  text-decoration: none;\n  text-shadow: 0 2px 3px rgba(123, 123, 123, 0.2);\n  opacity: 1;\n  transition: all .2s ease;\n  outline: 0;\n}\n\n.header__nav-link:hover {\n  opacity: 0.8;\n  color: #090822;\n}\n\n.header__nav-link:active {\n  opacity: 0.6;\n}\n\n.header__nav-link.active {\n  opacity: 0.5;\n}\n\n.header__nav-link.active:hover {\n  opacity: 0.5;\n}\n\n.header__nav-item + .header__nav-item {\n  margin-left: 10px;\n}\n", ""]);
 
 // exports
 
@@ -824,7 +1032,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/main-navigation/main-navigation.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header class=\"header\">\n  <nav class=\"header__nav\">\n    <ul class=\"header__nav-list\">\n      <li class=\"header__nav-item\">\n        <a routerLink=\"/\" routerLinkActive=\"active\" class=\"header__nav-link\">Home</a>\n      </li>\n      <li class=\"header__nav-item\">\n        <a routerLink=\"/create-article\" routerLinkActive=\"active\" class=\"header__nav-link\">Create Article</a>\n      </li>\n    </ul>\n  </nav>\n</header>\n"
+module.exports = "<header class=\"header\">\n  <nav class=\"header__nav\">\n    <ul class=\"header__nav-list\">\n      <li class=\"header__nav-item\">\n        <a routerLink=\"/\" [routerLinkActiveOptions]=\"{exact: true}\" routerLinkActive=\"active\" class=\"header__nav-link\">Home</a>\n      </li>\n      <li class=\"header__nav-item\">\n        <a routerLink=\"/create-article\" routerLinkActive=\"active\" class=\"header__nav-link\">Create Article</a>\n      </li>\n      <li class=\"header__nav-item\">\n        <a routerLink=\"/about-page\" routerLinkActive=\"active\" class=\"header__nav-link\">About</a>\n      </li>\n    </ul>\n  </nav>\n</header>\n"
 
 /***/ }),
 
@@ -916,13 +1124,18 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__about_about_component__ = __webpack_require__("../../../../../src/app/about/about.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__create_article_create_article_component__ = __webpack_require__("../../../../../src/app/create-article/create-article.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__about_guard__ = __webpack_require__("../../../../../src/app/about.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__about_page_about_page_component__ = __webpack_require__("../../../../../src/app/about-page/about-page.component.ts");
+
+
 
 
 
 var routes = [
     {
         path: '',
-        component: __WEBPACK_IMPORTED_MODULE_1__home_home_component__["a" /* HomeComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_1__home_home_component__["a" /* HomeComponent */],
+        pathMatch: 'full'
     },
     {
         path: 'create-article',
@@ -932,6 +1145,12 @@ var routes = [
         path: 'about/:id',
         component: __WEBPACK_IMPORTED_MODULE_0__about_about_component__["a" /* AboutComponent */]
     },
+    {
+        path: 'about-page',
+        component: __WEBPACK_IMPORTED_MODULE_4__about_page_about_page_component__["a" /* AboutPageComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_3__about_guard__["a" /* AboutGuard */]],
+        pathMatch: 'full'
+    }
 ];
 //# sourceMappingURL=routes.js.map
 
@@ -945,7 +1164,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".search {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: start;\n      -ms-flex-align: start;\n          align-items: flex-start;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.search__fieldset {\n  display: block;\n  width: 100%;\n  outline: 0;\n  border: 0;\n  margin: 0;\n  padding: 0;\n}\n\n.search__label {\n  display: block;\n  font-size: 14px;\n  line-height: 18px;\n  color: #090822;\n  opacity: 0.8;\n}\n\n.search__label + .search__input {\n  margin-top: 10px;\n}\n\n.search__input {\n  box-sizing: border-box;\n  display: block;\n  width: 100%;\n  padding: 10px 15px;\n  border-radius: 3px;\n  border: 0;\n  outline: 0;\n  color: rgba(9, 8, 34, 0.85);\n  border-top: 3px solid rgba(33, 33, 33, 0.2);\n  box-shadow: 0 2px 3px 0 rgba(122, 122, 122, 0.15);\n  transition: all .2s ease-in-out;\n}\n\n.search__input:focus {\n  color: rgba(13, 12, 34, 0.95);\n  box-shadow: 0 2px 3px 0 rgba(99, 99, 99, 0.2);\n  border-top: 3px solid rgba(77, 77, 77, 0.55);\n}\n\n.search__badge-list {\n  box-sizing: border-box;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  margin: 0;\n  padding: 20px;\n}\n\n.search__badge-item + .search__badge-item {\n  margin-left: 12px;\n}\n\n.search__badge-item {\n  list-style: none;\n}\n", ""]);
 
 // exports
 
@@ -958,7 +1177,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/search/search.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  search works!\n</p>\n"
+module.exports = "<div class=\"search\">\n  <fieldset class=\"search__fieldset\">\n    <label class=\"search__label\" for=\"search_query\">Enter the name of article:</label>\n    <input [(ngModel)]=\"search\"\n           (input)=\"changeQueryByInput($event)\"\n           id=\"search_query\"\n           class=\"search__input\"\n           type=\"text\">\n  </fieldset>\n\n  <ul class=\"search__badge-list\">\n    <li *ngFor=\"let badge of badgeTypes; let idx = index\"\n        (click)=\"changeByBadgeName(badgeTypes[idx])\"\n        class=\"search__badge-item badge\">\n      {{ badge }}\n    </li>\n  </ul>\n</div>\n"
 
 /***/ }),
 
@@ -980,16 +1199,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var SearchComponent = (function () {
     function SearchComponent() {
-        this.ChangeSearchQuery = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */];
+        this.badgeTypes = ['Angular', 'Redux', 'Vue', 'WebPack'];
+        this.changeQuery = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+        this.changeQueryByBadge = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
     }
     SearchComponent.prototype.ngOnInit = function () {
+    };
+    SearchComponent.prototype.changeQueryByInput = function () {
+        this.changeQuery.emit(this.search);
+    };
+    SearchComponent.prototype.changeByBadgeName = function (name) {
+        this.changeQueryByBadge.emit(name);
     };
     return SearchComponent;
 }());
 __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Object)
+], SearchComponent.prototype, "search", void 0);
+__decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Output */])(),
     __metadata("design:type", Object)
-], SearchComponent.prototype, "ChangeSearchQuery", void 0);
+], SearchComponent.prototype, "changeQuery", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Output */])(),
+    __metadata("design:type", Object)
+], SearchComponent.prototype, "changeQueryByBadge", void 0);
 SearchComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-search',
@@ -1062,6 +1297,10 @@ var ArticleService = (function () {
             return article.id === parseInt(id, 10);
         });
     };
+    ArticleService.prototype.getLastArticleId = function () {
+        var lastArticle = this.articles.length;
+        return this.articles[lastArticle - 1];
+    };
     ArticleService.prototype.addNewArticle = function (newArticle) {
         this.articles.push(newArticle);
     };
@@ -1088,6 +1327,69 @@ ArticleService = __decorate([
 
 var _a, _b;
 //# sourceMappingURL=article.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/phone.pipe.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PhonePipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var PhonePipe = (function () {
+    function PhonePipe() {
+    }
+    // do on es5
+    PhonePipe.prototype.transform = function (phones, value) {
+        return phones.filter(function (phone) { return phone.includes(value); });
+    };
+    return PhonePipe;
+}());
+PhonePipe = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Pipe */])({
+        name: 'phoneSearch'
+    })
+], PhonePipe);
+
+//# sourceMappingURL=phone.pipe.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/search-article.pipe.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchArticlePipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var SearchArticlePipe = (function () {
+    function SearchArticlePipe() {
+    }
+    SearchArticlePipe.prototype.transform = function (articles, value) {
+        return articles.filter(function (article) { return article.name.toLocaleLowerCase().includes(value.toLocaleLowerCase()); });
+    };
+    return SearchArticlePipe;
+}());
+SearchArticlePipe = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Pipe */])({
+        name: 'articleName'
+    })
+], SearchArticlePipe);
+
+//# sourceMappingURL=search-article.pipe.js.map
 
 /***/ }),
 
