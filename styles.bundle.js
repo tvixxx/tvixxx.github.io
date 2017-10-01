@@ -35,7 +35,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "* {\n  box-sizing: border-box;\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  font: 300 15px/1.4 -apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\";\n}\n", ""]);
+exports.push([module.i, "* {\n  box-sizing: border-box;\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  font: 300 15px/1.4 -apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\";\n}\n\n.common-btn {\n  box-sizing: border-box;\n  width: auto;\n  color: #333;\n  padding: 3px;\n  font-size: 16px;\n  line-height: 24px;\n  background-color: transparent;\n  outline: 0;\n  border: 0;\n  opacity: 1;\n  border-bottom: 1px solid #0a0522;\n  cursor: pointer;\n  transition: all .2s ease-in-out;\n}\n\n.common-btn:hover {\n  opacity: 0.7;\n  border-bottom: 1px solid transparent;\n}\n\n.common-btn:active {\n  opacity: 0.5;\n  border-bottom: 1px solid transparent;\n}\n\n.badge {\n  box-sizing: border-box;\n  width: auto;\n  padding: 4px 6px;\n  border-radius: 4px;\n  background-color: #58cd78;\n  color: #fff;\n  font-size: 13px;\n  line-height: 16px;\n  text-align: center;\n  opacity: 1;\n  transition: all .2s ease-in-out;\n  cursor: pointer;\n  border: 1px solid #36cd2a;\n}\n\n.badge:hover {\n  opacity: 0.8;\n  background-color: #4dd865;\n}\n\n.badge:active {\n  opacity: 0.7;\n}\n", ""]);
 
 // exports
 
