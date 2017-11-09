@@ -167,9 +167,10 @@ var AboutService = (function () {
             mainTitle: 'This SPA was made using Angular 4',
             subTitle: 'Technologies:',
             technologies: [
-                'Animations',
+                'Angular Animations',
                 'Routing',
                 'Reactive forms',
+                'Lazy load modules',
                 'Two way data-binding',
                 'One way data-binding',
                 'Component modular architecture',
@@ -179,6 +180,7 @@ var AboutService = (function () {
                 'Directives and custom directives',
                 'Pipes and custom pipes',
                 'ES6 + TS',
+                'rxjs',
                 'BEM',
                 'HTML',
                 'CSS'
